@@ -15,6 +15,10 @@ Após ter o conda instalado, execute:
 ```shell
 conda env create -f environment.yml
 ```
+Para verificar os ambientes criados e disponíveis:
+```commandline
+conda env list
+```
 
 Documentação de referência: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html 
 
