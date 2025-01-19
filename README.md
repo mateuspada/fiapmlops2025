@@ -27,3 +27,9 @@ Após ter a versão do Python devidamente instalada, execute:
 ```shell
 pip install -r requirements.txt
 ```
+
+## Dependências Azure Machine Learning
+Se o você for integrar cin a área de trabalho Azure Macbine Learning, instale também as dependências da Azure:
+```shell
+pip install -r requirements_azure.txt
+```
