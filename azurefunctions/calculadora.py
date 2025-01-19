@@ -27,4 +27,4 @@ def http_trigger1(req: func.HttpRequest) -> func.HttpResponse: # Normalmente, co
         return func.HttpResponse(json.dumps(ret), status_code=200)
     except Exception as err:
         return func.HttpResponse(json.dumps({"message": str(err)}),
-                                 status_code=404)
+                                 status_code=400)
