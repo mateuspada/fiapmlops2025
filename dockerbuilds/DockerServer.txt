@@ -22,6 +22,7 @@ RUN pip install -r /myServer/requirements.txt
 
 # Expõe alguns diretórios para o HOST
 VOLUME /myServer/config
+VOLUME /myServer/models
 VOLUME /Log
 
 
