@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Para executar:
+# chmod +x setuphost.sh
+# ./setuphost.sh
+
+
 # Atualiza os pacotes
 echo "Atualizando pacotes do sistema operacional ..."
 sudo apt-get update
