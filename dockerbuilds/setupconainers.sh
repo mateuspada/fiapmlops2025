@@ -4,6 +4,26 @@
 # chmod +x setupconainers.sh
 # ./setupconainers.sh
 
+# Valida se diretórios requeridos existem
+[ ! -d "$(pwd)/models" ] && echo "Diretório 'models' não encontrado!" && exit 1
+[ ! -d "$(pwd)/config" ] && echo "Diretório 'config' não encontrado!" && exit 1
+[ ! -d "$(pwd)/Log" ]    && echo "Diretório 'Log' não encontrado!" && exit 1
+
+
+# Função para verificar, parar e remover um container
+handle_existing_container() {
+  local container_name=$1
+  if [ "$(sudo docker ps -aq -f name=$container_name)" ]; then
+    echo "Parando e removendo o container '$container_name'..."
+    sudo docker stop $container_name
+    sudo docker rm $container_name
+  fi
+}
+
+# Maneja containers existentes
+handle_existing_container "serving01"
+handle_existing_container "serving02"
+handle_existing_container "modelmanager"
 
 # Criação da rede Docker
 echo "Criando a rede Docker..."
@@ -26,5 +46,5 @@ echo "Aguardando 5 segundos para verificar os containers..."
 sleep 5
 
 # Listar os containers em execução
-echo "Listando os containers em execução:"
-sudo docker ps
+echo "Listando os containers que estão em execução:"
+sudo docker ps -a
