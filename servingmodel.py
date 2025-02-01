@@ -37,10 +37,10 @@ def call_predict(request = request):
     if campos.shape[0] == 0:
         return "Dados de chamada da API estão incorretos.", 400
 
-    for col in modelo.independentcols:
+    for col in modelo.feature_names_in_:
         if col not in campos.columns:
             campos[col] = 0
-    x = campos[modelo.independentcols]
+    x = campos[modelo.feature_names_in_]
 
     prediction = modelo.predict(x)
 
