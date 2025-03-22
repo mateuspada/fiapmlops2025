@@ -17,7 +17,7 @@ def train_models(mydf: pd.DataFrame):
 
     # Cria o Classifier (modelo 1)
     independentcols_m1 = independentcols.copy()
-    clf = rfc(n_estimators=1, max_depth=3)
+    clf = rfc(n_estimators=20)
     clf.fit(X=X_train[independentcols_m1], y=y_train)
     clf.independentcols = independentcols_m1
     clf_acuracia = clf.score(X=X_test[independentcols_m1], y=y_test)
@@ -26,7 +26,7 @@ def train_models(mydf: pd.DataFrame):
     # Cria o Regressor (modelo 2)
     independentcols_m2 = independentcols.copy()
     independentcols_m2.remove('etnia')
-    rgs = rfr(n_estimators=1, max_depth=10)
+    rgs = rfr(n_estimators=20)
     rgs.fit(X=X_train[independentcols_m2], y=y_train)
     rgs.independentcols = independentcols_m2
     rgs_acuracia = rgs.score(X=X_test[independentcols_m2], y=y_test)
